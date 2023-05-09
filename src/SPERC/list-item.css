@@ -1,0 +1,19 @@
+h6 {
+    margin: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 0.2fr 0.4fr;
+    align-items: end;
+}
+
+.blueText {
+    color: blue;
+}
+.orangeText {
+    color: orange;
+}
+.greenText {
+    color: green;
+}
