@@ -1,21 +1,21 @@
-import  ListItem  from "./list-item"
-
+import ListItem from "../list-item/list-item"
+import './style.css'
 function PhysiologicalRegulation() {
-    const painAndTemp = { 
-        title: "Temperature /pain regulation", 
-        standard: ["may not be able to maintain body temperature effectively", "difficulty in extreme temperatures or going from one extreme to another", "strong preference for warmth or cold"],  
+    const painAndTemp = {
+        title: "Temperature /pain regulation",
+        standard: ["may not be able to maintain body temperature effectively", "difficulty in extreme temperatures or going from one extreme to another", "strong preference for warmth or cold"],
         PNS: ["Child feels clammy and cool", "Child does not notice if they are hot or cold", "Limp floppy body when held", "Under reacts to pain", "Extremely passive as an infant"],
         SNS: ["Often too hot", "Sweats a lot", "Heart rate too fast or stays too fast after fear/ exertion", "Overreacts to pain", "Difficults to settle as an infant", "Tense when held"]
-    } 
+    }
 
-    const foodAndDigestion = { 
+    const foodAndDigestion = {
         title: "Food and Digestion",
         standard: ["prone to wetting /accidents/ soiling", "difficulty with potty training; does not seem to know when he/she has to go (i.e., cannot feel the necessary sensation that bowel or bladder are full)", "prone to Food allergies", "prone to eczema", "Shows distinct preference for sweet/ salty/ sour – citrus, spice, bitter/ smoke e.g. BBQ flavour"],
         PNS: ["Never Thirsty", "Poor appetite", "Prone to loose bowels/ Diarrhoea", "Prone to burping/ flatulence/ vomiting", "Digestive pain or discomfort", "Sleeps all the time", "Needs a lot of sleep to function"],
         SNS: ["Always Thirsty", "Always hungry, dosen't know when full", "impulsive with food", "Prone to constipation", "Restless sleep pattern", "Requires excessive help from caregiver to fall asleep; i.e., rubbing back or head, rocking, long walks, or car rides"]
-    } 
-    
-    const sleepAndSelfSoothing = { 
+    }
+
+    const sleepAndSelfSoothing = {
         title: "Sleep/ self-soothing  ",
         standard: ["Tense when held as a baby", "Fussy baby", "Difficult to settle /very long bedtime routine", "Can they self soothe? (use dummy/ cloth/ teddy/ cuddle)"]
     }
@@ -29,46 +29,54 @@ function PhysiologicalRegulation() {
                     When our autonomic nervous system (ANS) is well balanced, our body adjusts to our needs. Our heartrate slows down when we need to sleep, our digestion increases when we eat, and slows down when we are asleep, our body temperature adjusts according to our physical exertion and environmental temperature.
                 </p>
             </header>
-            <div className="border">
-                <section>
+            <div>
+                <section className="border">
                     <h5>{painAndTemp.title}</h5>
                     <ol>{painAndTemp.standard.map((item) => {
-                       return <ListItem key={item} data={item} />
+                        return <ListItem key={item} data={item} />
                     })}</ol>
+
+                    <section>
+                        <div>
+                            <h6>PNS</h6>
+                            <ol>{painAndTemp.PNS.map((item) => {
+                                return <ListItem key={item} data={item} />
+                            })}</ol>
+                        </div>
+                        <div>
+                            <h6>SNS</h6>
+                            <ol>{painAndTemp.SNS.map((item) => {
+                                return <ListItem key={item} data={item} />
+                            })}</ol>
+                        </div>
+                    </section>
                 </section>
-                <section>
-                    <div>
-                        <h6>PNS</h6>
-                        <ol>{painAndTemp.PNS.map((item) => {
-                            return <ListItem key={item} data={item} />
-                        })}</ol>
-                    </div>
-                    <div>
-                        <h6>SNS</h6>
-                        <ol>{painAndTemp.SNS.map((item) => {
-                            return <ListItem key={item} data={item} />
-                        })}</ol>
-                    </div>
-                </section>
-                <section>
+                <section className="border">
                     <h5>{foodAndDigestion.title}</h5>
                     <ol>{foodAndDigestion.standard.map((item) => {
                         return <ListItem key={item} data={item} />
                     })}</ol>
+
+                    <section>
+                        <div>
+                            <h6>PNS</h6>
+                            <ol>{foodAndDigestion.PNS.map((item) => {
+                                return <ListItem key={item} data={item} />
+                            })}</ol>
+                        </div>
+                        <div>
+                            <h6>SNS</h6>
+                            <ol>{foodAndDigestion.SNS.map((item) => {
+                                return <ListItem key={item} data={item} />
+                            })}</ol>
+                        </div>
+                    </section>
                 </section>
-                <section>
-                    <div>
-                        <h6>PNS</h6>
-                        <ol>{foodAndDigestion.PNS.map((item) => {
-                            return <ListItem key={item} data={item} />
-                        })}</ol>   
-                    </div>
-                    <div>
-                        <h6>SNS</h6>
-                        <ol>{foodAndDigestion.SNS.map((item) => {
-                            return <ListItem key={item} data={item} />
-                        })}</ol>
-                    </div>
+                <section className="border">
+                    <h5>{sleepAndSelfSoothing.title}</h5>
+                    <ol>{sleepAndSelfSoothing.standard.map((item) => {
+                        return <ListItem key={item} data={item} />
+                    })}</ol>
                 </section>
             </div>
 

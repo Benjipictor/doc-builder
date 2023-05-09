@@ -1,12 +1,16 @@
-import PhysiologicalRegulation from './physiological-regulation'
+import EmotionalRegulation from './emotional-Regulation/Emotional-regulation'
+import PhysiologicalRegulation from './physiological/physiological-regulation'
+import SocialParticipation from './social-participation-play/SocialParticipationPlay'
+import './Sperc.css'
+import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
 function Sperc() {
 
     return (
-        <div>
+        <div className='Sperc-container'>
             <header className="Section-header">
                 <h2>Sensory Processing and Early Relationships</h2>
                 <p>
-                    Information for this section was provided through questionnaires completed by Frankie’s parents and teachers.
+                    Information for this section was provided through questionnaires completed by Frankie's parents and teachers.
                     Answers have been colour coded, indicating who has highlighted this response:
                 </p>
                 <ul className="UL-noStyle">
@@ -16,8 +20,11 @@ function Sperc() {
                 </ul>
             </header>
             <PhysiologicalRegulation />
+            <SurvivalBehaviours />
+            <EmotionalRegulation />
+            <SocialParticipation />
         </div>
     )
 }
 
-export default  Sperc
+export default Sperc

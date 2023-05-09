@@ -1,12 +1,14 @@
 h6 {
     margin: 5px;
 }
-
+p {
+    margin-left: 5px ;
+}
 .container {
     display: grid;
     grid-template-columns: 1fr 0.2fr 0.2fr 0.4fr;
-    align-items: end;
     gap: 20px;
+    border-bottom: 1px black solid;
 }
 
 .blueText {
@@ -18,3 +20,4 @@ h6 {
 .greenText {
     color: green;
 }
+
