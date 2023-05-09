@@ -36,6 +36,40 @@ function PhysiologicalRegulation() {
                        return <ListItem key={item} data={item} />
                     })}</ol>
                 </section>
+                <section>
+                    <div>
+                        <h6>PNS</h6>
+                        <ol>{painAndTemp.PNS.map((item) => {
+                            return <ListItem key={item} data={item} />
+                        })}</ol>
+                    </div>
+                    <div>
+                        <h6>SNS</h6>
+                        <ol>{painAndTemp.SNS.map((item) => {
+                            return <ListItem key={item} data={item} />
+                        })}</ol>
+                    </div>
+                </section>
+                <section>
+                    <h5>{foodAndDigestion.title}</h5>
+                    <ol>{foodAndDigestion.standard.map((item) => {
+                        return <ListItem key={item} data={item} />
+                    })}</ol>
+                </section>
+                <section>
+                    <div>
+                        <h6>PNS</h6>
+                        <ol>{foodAndDigestion.PNS.map((item) => {
+                            return <ListItem key={item} data={item} />
+                        })}</ol>   
+                    </div>
+                    <div>
+                        <h6>SNS</h6>
+                        <ol>{foodAndDigestion.SNS.map((item) => {
+                            return <ListItem key={item} data={item} />
+                        })}</ol>
+                    </div>
+                </section>
             </div>
 
         </div>
