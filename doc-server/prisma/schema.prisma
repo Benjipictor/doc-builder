@@ -5,58 +5,96 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
+  id        Int         @id @default(autoincrement())
+  email     String      @unique
   password  String
   profile   Profile?
   role      String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Assesment Assesment[]
 }
 
 model Profile {
-  id        Int     @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   firstName String
   lastName  String
-  user      User    @relation(fields: [userId], references: [id])
-  userId    Int     @unique
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int       @unique
   address   Address[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model ClientProfile {
-  id        Int     @id @default(autoincrement())
+  id        Int         @id @default(autoincrement())
   firstName String
   lastName  String
   dob       String
   gender    String
   school    String?
   yearGroup String?
-  address   Address[] 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  address   Address[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Assesment Assesment[]
 }
 
 model Address {
-  id          Int     @id @default(autoincrement())
-  location    String
-  street      String
-  city        String
-  county      String
-  country     String
-  postalCode  String
-  client      ClientProfile?    @relation(fields: [clientId], references: [id])
-  clientId    Int?
-  profile     Profile?          @relation(fields: [profileId], references: [id])
-  profileId   Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         Int            @id @default(autoincrement())
+  location   String
+  street     String
+  city       String
+  county     String
+  country    String
+  postalCode String
+  client     ClientProfile? @relation(fields: [clientId], references: [id])
+  clientId   Int?
+  profile    Profile?       @relation(fields: [profileId], references: [id])
+  profileId  Int?
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model Assesment {
+  id         Int            @id @default(autoincrement())
+  checklists Checklist[]
+  client     ClientProfile? @relation(fields: [clientId], references: [id])
+  clientId   Int
+  asessor    User           @relation(fields: [assesorId], references: [id])
+  assesorId  Int
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model Checklist {
+  id             Int             @id @default(autoincrement())
+  title          String
+  checklistItems ChecklistItem[]
+  assesment      Assesment       @relation(fields: [assesmentId], references: [id])
+  assesmentId    Int
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model ChecklistItem {
+  id          Int       @id @default(autoincrement())
+  itemNumber  Int
+  description String
+  response    String
+  checklist   Checklist @relation(fields: [checklistId], references: [id])
+  checklistId Int
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
 }
