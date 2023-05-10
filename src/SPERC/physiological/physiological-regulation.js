@@ -1,4 +1,5 @@
 import ListItem from "../list-item/list-item"
+import HeaderAndPrompt from '../header-prompt/header'
 import './style.css'
 function PhysiologicalRegulation() {
     const painAndTemp = {
@@ -19,16 +20,14 @@ function PhysiologicalRegulation() {
         title: "Sleep/ self-soothing  ",
         standard: ["Tense when held as a baby", "Fussy baby", "Difficult to settle /very long bedtime routine", "Can they self soothe? (use dummy/ cloth/ teddy/ cuddle)"]
     }
+    const header = { 
+        title: "Physiological Regulation (L1)",
+        techDescription: "Physiological Regulation is our body’s ability to remain relatively stable and constant.This is a foundation stone or base level for regulation.If we are unwell, tired, hungry or thirsty this will affect our emotional and sensory regulation.The ability to regulate our body functions develops in infancy and childhood.Eg: babies cannot regulate their temperature, don’t have established sleep/ wake patterns, digestion and continence.If we are under a lot of emotional stress, our physiological regulation can be affected.Factors such as ongoing family stress, learning difficulties or sensory processing difficulties can interrupt the body’s ability to develop physiological regulation.                    When our autonomic nervous system(ANS) is well balanced, our body adjusts to our needs.Our heartrate slows down when we need to sleep, our digestion increases when we eat, and slows down when we are asleep, our body temperature adjusts according to our physical exertion and environmental temperature."
+    }
 
     return (
         <div className="Physiological-Regulation-container">
-            <header className="component-prompt">
-                <h3>Physiological Regulation (L1)</h3>
-                <p className="tech-description">
-                    Physiological Regulation is our body’s ability to remain relatively stable and constant. This is a foundation stone or base level for regulation. If we are unwell, tired, hungry or thirsty this will affect our emotional and sensory regulation. The ability to regulate our body functions develops in infancy and childhood. Eg: babies cannot regulate their temperature, don’t have established sleep/wake patterns, digestion and continence. If we are under a lot of emotional stress, our physiological regulation can be affected.  Factors such as ongoing family stress, learning difficulties or sensory processing difficulties can interrupt the body’s ability to develop physiological regulation.
-                    When our autonomic nervous system (ANS) is well balanced, our body adjusts to our needs. Our heartrate slows down when we need to sleep, our digestion increases when we eat, and slows down when we are asleep, our body temperature adjusts according to our physical exertion and environmental temperature.
-                </p>
-            </header>
+            <HeaderAndPrompt title={header.title} techDescription={header.techDescription} />
             <div>
                 <section className="border">
                     <h5>{painAndTemp.title}</h5>

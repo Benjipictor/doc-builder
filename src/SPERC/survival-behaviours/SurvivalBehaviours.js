@@ -1,3 +1,4 @@
+import HeaderAndPrompt from "../header-prompt/header"
 import ListItem from "../list-item/list-item"
 
 function SurvivalBehaviours() {
@@ -21,15 +22,13 @@ function SurvivalBehaviours() {
         "Daydreams, goes into world of their own / burping / farting / yawning",
         "Sleeping, fainting, collapse e.g.after outings, or visits to therapy."
     ]
+    const header = {
+        title: "Survival behaviours / States of Arousal(L2)",
+        techDescription: "People can tip into survival behaviours when feeling stressed in situations when others do not perceive the situation as threatening.These are largely unconscious patterns of behaviour that are triggered by sensory or emotional overload to keep us safe. According to information provided by XXXX’s parents and teachers"
+    }
     return (
         <div className="Survival-behavours-container">
-            <header className="component-prompt">
-                <h3>Survival behaviours / States of Arousal (L2)</h3>
-                <p className="tech-description">
-                    People can tip into survival behaviours when feeling stressed in situations when others do not perceive the situation as threatening. These are largely unconscious patterns of behaviour that are triggered by sensory or emotional overload to keep us safe.
-                    According to information provided by XXXX’s parents and teachers
-                </p>
-            </header>
+            <HeaderAndPrompt title={header.title} techDescription={header.techDescription} /> 
             <section className="border" >
                 <ol>{data.map((item) => {
                     return <ListItem key={item} data={item} />

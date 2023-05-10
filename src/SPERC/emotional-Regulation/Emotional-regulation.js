@@ -1,4 +1,5 @@
 import ListItem from "../list-item/list-item";
+import HeaderAndPrompt from '../header-prompt/header'
 function EmotionalRegulation () {
     const data = [
         "difficulty accepting changes in routine(to the point of tantrums)",
@@ -10,15 +11,13 @@ function EmotionalRegulation () {
         "avoids eye contact",
         "difficulty appropriately making needs known"
     ]
+    const header = {
+        title: "Emotional Regulation (L2)",
+        techDescription: "We develop emotional regulation as we are developing the ability to regulate our arousal levels and develop resilience. According to information provided by XXXX’s parents and teachers"
+    }
     return (
         <div className="Emotiona-regulation-container">
-            <header className="component-prompt">
-                <h3>Emotional Regulation (L2)</h3>
-                <p className="tech-description">
-                    We develop emotional regulation as we are developing the ability to regulate our arousal levels and develop resilience.
-                    According to information provided by XXXX’s parents and teachers
-                </p>
-            </header>
+            <HeaderAndPrompt title={header.title} techDescription={header.techDescription} />
             <section className="border" >
                 <ol>{data.map((item) => {
                     return <ListItem key={item} data={item} />
