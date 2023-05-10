@@ -1,5 +1,6 @@
 {
   "name": "doc-server",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,10 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.14.0",
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "prisma-erd-generator": "^1.7.0"
   },
   "devDependencies": {
     "prisma": "^4.14.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }

@@ -3,12 +3,14 @@ import bcrypt from 'bcrypt'
 const prisma = new PrismaClient()
 
 async function seed() {
-    try {
-        const user1  = createUser("james@gmail.com", "Testtest2!", "admin")
-        const u1Profile = createUserProfile("james", "doe", user1.id)
-        const clientProfile = createClientProfile("Lenny", "dobs", "01/01/10", "male")
-        const adress = createAdress("lotham", "lotham street")
-    }
+        const user1  = await createUser("james@gmail.com", "Testtest2!", "admin")
+        console.log("this is user created", user1)
+        await createUserProfile("james", "doe", user1.id)
+        const clientProfile = await createClientProfile("Lenny", "dobs", "01/01/10", "male", )
+        await createAdress("lotham", "lotham street", "north town", "asquard", "uk", "ST13 TYN", clientProfile.id)
+        const assessment = await createAssesment(clientProfile.id, user1.id)
+        const checklist = await createChecklist("sperc", assessment.id)
+        await createChecklistItem(1, "may not be able to maintain body temperature effectively", "parents", checklist.id) 
 }
 
 async function createUser(
@@ -24,6 +26,7 @@ async function createUser(
         },
     })
     console.log("user created: ", user)
+    return user
 }
 
 async function createUserProfile(
@@ -35,10 +38,14 @@ async function createUserProfile(
         data: {
             firstName,
             lastName,
-            userId
+            userId,
+        },
+        include: {
+            user: true
         }
     })
     console.log("profile created: ", profile)
+    return profile
 }
 
 async function createClientProfile(
@@ -47,7 +54,7 @@ async function createClientProfile(
     dob,
     gender,
 ) {
-    const client = await prisma.client.create({
+    const client = await prisma.clientProfile.create({
         data: {
             firstName,
             lastName,
@@ -56,6 +63,7 @@ async function createClientProfile(
         }
     })
     console.log("client profile created: ", client)
+    return client
 }
 
 async function createAdress(
@@ -76,31 +84,49 @@ async function createAdress(
             country,
             postalCode,
             clientId
+        },
+        include: {
+            client: true
         }
     })
     console.log("adress created: ", address)
+    return address
 }
 
 async function createAssesment(
     clientId,
     assesorId
 ) {
-    const assessment = await prisma.assessment.create({
-        clientId,
-        assesorId
+    const assessment = await prisma.assesment.create({
+        data: {
+            clientId,
+            assesorId
+        }, 
+        include: {
+            client: true,
+            asessor: true,
+            checklists: true
+        }
     })
     console.log("Assesment created: ", assessment)
+    return assessment
 }
 
 async function createChecklist(
     title,
-    assessmentId
+    assesmentId
 ) {
-    const checklist = await prisma.assessment.create({
-        title,
-        assessmentId
+    const checklist = await prisma.checklist.create({
+        data: {
+            title,
+            assesmentId
+        },
+        include: {
+            assesment: true
+        }
     })
     console.log("checklist created: ", checklist)
+    return checklist
 }
 
 async function createChecklistItem(
@@ -110,10 +136,21 @@ async function createChecklistItem(
     checklistId
 ) {
     const checklistItem = await prisma.checklistItem.create({
+       data: { 
         itemNumber,
         description,
         response,
         checklistId
+        },
+        include: {
+           checklist: true 
+        }
     })
     console.log("Check list item created: ", checklistItem)
+    return checklistItem
 }
+seed().catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+})
