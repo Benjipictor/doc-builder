@@ -5,7 +5,6 @@ function SurvivalBehaviours() {
     const data = [
         "Can’t relax and rest / calm",
         "Is unable to focus and be at a Just right  level for learning and playing",
-        "Is unable to focus and be at a Just right  level for learning and playing",
         "Clingy reluctant to separate",
         "Finds it difficult to go to bed",
         "Finds it difficult to go to sleep",

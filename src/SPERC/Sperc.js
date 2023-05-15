@@ -1,10 +1,14 @@
 import EmotionalRegulation from './emotional-Regulation/Emotional-regulation'
+import { useState } from "react";
 import PhysiologicalRegulation from './physiological/physiological-regulation'
 import SocialParticipation from './social-participation-play/SocialParticipationPlay'
 import './Sperc.css'
 import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
-function Sperc() {
 
+
+function Sperc() {
+    const [formState, setFormState] = useState([]);
+    
     return (
         <div className='Sperc-container'>
             <header className="Section-header">
@@ -19,7 +23,7 @@ function Sperc() {
                     <li className="Green-text">Parent and Teacher</li>
                 </ul>
             </header>
-            <PhysiologicalRegulation />
+            <PhysiologicalRegulation formState={formState} setFormState={setFormState}  />
             <SurvivalBehaviours />
             <EmotionalRegulation />
             <SocialParticipation />
