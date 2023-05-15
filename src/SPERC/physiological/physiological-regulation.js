@@ -2,7 +2,7 @@ import ListItem from "../list-item/list-item"
 import HeaderAndPrompt from '../header-prompt/header'
 import './style.css'
 function PhysiologicalRegulation(props) {
-    const {formState, setFormState} = props
+    const {formState, setFormState, responses, setResponses} = props
     const painAndTemp = {
         title: "Temperature /pain regulation",
         standard: [
@@ -76,20 +76,19 @@ function PhysiologicalRegulation(props) {
                 <section className="border">
                     <h5>{painAndTemp.title}</h5>
                     <ol>{painAndTemp.standard.map((item) => {
-                        return <ListItem key={item.description} formState={formState} setFormState={setFormState} title={"standard"} id={item.id} description={item.description} />
+                        return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"standard"} sectionTitle={painAndTemp.title} id={item.id} description={item.description} />
                     })}</ol>
-
                     <section>
                         <div>
                             <h6>PNS</h6>
                             <ol>{painAndTemp.PNS.map((item) => {
-                                return <ListItem key={item.description} data={item} />
+                                return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"PNS"} sectionTitle={painAndTemp.title} id={item.id} description={item.description} />
                             })}</ol>
                         </div>
                         <div>
                             <h6>SNS</h6>
                             <ol>{painAndTemp.SNS.map((item) => {
-                                return <ListItem key={item.description} data={item} />
+                                return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"SNS"} sectionTitle={painAndTemp.title} id={item.id} description={item.description} />
                             })}</ol>
                         </div>
                     </section>
@@ -97,20 +96,20 @@ function PhysiologicalRegulation(props) {
                 <section className="border">
                     <h5>{foodAndDigestion.title}</h5>
                     <ol>{foodAndDigestion.standard.map((item) => {
-                        return <ListItem key={item.description} data={item} />
+                        return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"standard"} sectionTitle={foodAndDigestion.title} id={item.id} description={item.description} />
                     })}</ol>
 
                     <section>
                         <div>
                             <h6>PNS</h6>
                             <ol>{foodAndDigestion.PNS.map((item) => {
-                                return <ListItem key={item.description} data={item} />
+                                return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"PNS"} sectionTitle={foodAndDigestion.title} id={item.id} description={item.description} />
                             })}</ol>
                         </div>
                         <div>
                             <h6>SNS</h6>
                             <ol>{foodAndDigestion.SNS.map((item) => {
-                                return <ListItem key={item.description} data={item} />
+                                return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"SNS"} sectionTitle={foodAndDigestion.title} id={item.id} description={item.description} />
                             })}</ol>
                         </div>
                     </section>
@@ -118,7 +117,7 @@ function PhysiologicalRegulation(props) {
                 <section className="border">
                     <h5>{sleepAndSelfSoothing.title}</h5>
                     <ol>{sleepAndSelfSoothing.standard.map((item) => {
-                        return <ListItem key={item.description} data={item} />
+                        return <ListItem key={item.description} responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} title={"standard"} sectionTitle={sleepAndSelfSoothing.title} id={item.id} description={item.description} />
                     })}</ol>
                 </section>
             </div>

@@ -8,7 +8,7 @@ import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
 
 function Sperc() {
     const [formState, setFormState] = useState([]);
-    
+    const [responses, setResponses] = useState([])
     return (
         <div className='Sperc-container'>
             <header className="Section-header">
@@ -23,7 +23,7 @@ function Sperc() {
                     <li className="Green-text">Parent and Teacher</li>
                 </ul>
             </header>
-            <PhysiologicalRegulation formState={formState} setFormState={setFormState}  />
+            <PhysiologicalRegulation responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState}  />
             <SurvivalBehaviours />
             <EmotionalRegulation />
             <SocialParticipation />

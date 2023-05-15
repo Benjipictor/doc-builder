@@ -1,0 +1,64 @@
+.input {
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 70%;
+    height: 150px;
+    padding: 10px;
+    resize: none;
+    font-size: 16px;
+    
+}
+.input:read-only {
+    color: #82858a;
+}
+
+.button {
+    margin: 5px;
+    border: 1px solid grey;
+}
+.input-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+.button {
+    background-image: linear-gradient(#f7f8fa, #e7e9ec);
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .6) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 14px;
+    height: 29px;
+    font-size: 13px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 11px;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.button:active {
+    border-bottom-color: #a2a6ac;
+}
+
+.button:active:hover {
+    border-bottom-color: #a2a6ac;
+}
+
+.button:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+    box-shadow: rgba(17, 108, 228, 0.5) 0 0 2px 2px;
+}

@@ -3,19 +3,47 @@ import './list-item.css'
 import TextInput from '../text-Input/textInput'
 
 const ListItem = (props) => {
-    const {description, id, title, setFormState, formState} = props
+    const {description, id, title, setFormState, formState, sectionTitle, responses, setResponses} = props
     const [textColour, setTextColour] = useState("black")
     const toggleColourBlue = () => {
         setTextColour('blueText')
+        let response = 'Parent'
+        addResponse(response)
     }
     const toggleColourOrange = () => {
         setTextColour('orangeText')
+        let response = 'Teacher'
+        addResponse(response)
     }
     const toggleColourGreen = () => {
         setTextColour('greenText')
+        let response = 'Both'
+        addResponse(response)
     }
     const toggleColourBlack = () => {
         setTextColour('blackText')
+        let response = null
+        addResponse(response)
+    }
+
+    const addResponse = (response) => {
+        const foundObject = responses.find(obj => obj.itemNumber === id && obj.title === title && obj.sectionTitle === sectionTitle);
+        const responseObj = {
+            itemNumber: id,
+            description: description,
+            response: response,
+            checklistId: 1,
+        }
+        if (!foundObject) {
+            setResponses(responses => [...responses, responseObj]);
+        } else {
+            const index = responses.findIndex(obj => obj.id === id && obj.title === title && obj.sectionTitle === sectionTitle);
+            const newFormState = responses.map((obj, i) =>
+                i === index ? { ...obj, response: response } : obj
+            );
+            setFormState(newFormState);
+        }
+        console.log(responses)
     }
 
     return (
@@ -48,9 +76,8 @@ const ListItem = (props) => {
                 </div>
             </section>
             <section className='bottomContainer'>
-                <TextInput formState={formState} setFormState={setFormState} description={description} id={id} title={title} label={"comment"} readOnly={false} />
+                <TextInput formState={formState} setFormState={setFormState} sectionTitle={sectionTitle} description={description} id={id} title={title} label={"comments"} readOnly={false} />
             </section>
-
         </li>
     )
 }
