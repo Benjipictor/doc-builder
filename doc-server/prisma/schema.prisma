@@ -83,6 +83,7 @@ model Checklist {
   id             Int             @id @default(autoincrement())
   title          String
   checklistItems ChecklistItem[]
+  comments       CommentsOnChecklistItem[]
   assesment      Assesment       @relation(fields: [assesmentId], references: [id])
   assesmentId    Int
   createdAt  DateTime       @default(now())
@@ -96,16 +97,16 @@ model ChecklistItem {
   response    String
   checklist   Checklist @relation(fields: [checklistId], references: [id])
   checklistId Int
-  comments    CommentsOnChecklistItem[]
   createdAt  DateTime       @default(now())
   updatedAt  DateTime       @updatedAt
 }
 
 model CommentsOnChecklistItem {
   id          Int       @id @default(autoincrement())
-  checklistItem ChecklistItem   @relation(fields: [itemId], references: [id])
-  comments    String
   itemId      Int
+  checklist   Checklist @relation(fields: [checklistId], references: [id])
+  checklistId Int
+  comments    String
   user        User?      @relation(fields: [userId], references: [id])
   userId      Int
 }

@@ -76,7 +76,7 @@ const ListItem = (props) => {
                 </div>
             </section>
             <section className='bottomContainer'>
-                <TextInput formState={formState} setFormState={setFormState} sectionTitle={sectionTitle} description={description} id={id} title={title} label={"comments"} readOnly={false} />
+                <TextInput formState={formState} setFormState={setFormState} id={id} label={"comments"} readOnly={false} />
             </section>
         </li>
     )

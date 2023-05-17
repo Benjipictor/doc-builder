@@ -10,7 +10,7 @@ export const createItems = async (data) => {
 }
 
 export const createComments = async (data) => {
-    console.log("this is the array", data)
+    console.log("this is the comments array", data)
     const createdComments = await dbClient.commentsOnChecklistItem.createMany({
         data,
         skipDuplicates: true

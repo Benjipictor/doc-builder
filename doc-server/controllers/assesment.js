@@ -1,5 +1,5 @@
 import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
-import { createItems } from '../domain/assesment.js'
+import { createItems, createComments } from '../domain/assesment.js'
 export const submitChecklistItems = async (req, res) => {
     const arrayItems = req.body
     arrayItems.forEach(item => {
@@ -20,7 +20,7 @@ export const submitChecklistComments = async (req, res) => {
     
     try {
         const comments = await createComments(req.body)
-        return sendDataResponse(res, 500, comments)
+        return sendDataResponse(res, 200, comments)
     } catch (e) {
         sendDataResponse(res, 500, { error: e })
     }

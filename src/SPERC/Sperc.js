@@ -13,10 +13,34 @@ function Sperc() {
         const json = JSON.stringify(responses)
        return console.log("this is responses", json)
     }
+    
+    const postComments = () => {
+        const id = 1
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formState),
+        };
+        fetch(`http://localhost:4000/assesment/checklist/${id}/comments`, options)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.status);
+
+                }
+                return response.json()
+            })
+            .then((postedComments) => {
+                console.log(postedComments)
+            })
+            .catch((error) => {
+                console.log({ error: error })
+            })
+    }
 
     const postResponses = () => {
         const id = 1
-        console.log("this is the response", responses)
         const options = {
             method: 'POST',
             headers: {
@@ -40,6 +64,12 @@ function Sperc() {
             })
     }
 
+    const submit = () => {
+        postComments()
+        postResponses()
+        return
+    }
+
     return (
         <div className='Sperc-container'>
             <header className="Section-header">
@@ -58,7 +88,7 @@ function Sperc() {
             <SurvivalBehaviours />
             <EmotionalRegulation />
             <SocialParticipation />
-            <button onClick={postResponses}>Submit</button>
+            <button onClick={submit}>Submit</button>
             <button onClick={showMeTheMoney}>Show me the money</button>
         </div>
     )
