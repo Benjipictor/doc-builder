@@ -104,6 +104,7 @@ model ChecklistItem {
 model CommentsOnChecklistItem {
   id          Int       @id @default(autoincrement())
   checklistItem ChecklistItem   @relation(fields: [itemId], references: [id])
+  comments    String
   itemId      Int
   user        User?      @relation(fields: [userId], references: [id])
   userId      Int

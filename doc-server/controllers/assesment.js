@@ -16,3 +16,12 @@ export const submitChecklistItems = async (req, res) => {
     }
 }
 
+export const submitChecklistComments = async (req, res) => {
+    
+    try {
+        const comments = await createComments(req.body)
+        return sendDataResponse(res, 500, comments)
+    } catch (e) {
+        sendDataResponse(res, 500, { error: e })
+    }
+}
