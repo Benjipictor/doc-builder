@@ -9,6 +9,37 @@ import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
 function Sperc() {
     const [formState, setFormState] = useState([]);
     const [responses, setResponses] = useState([])
+    const showMeTheMoney = () => {
+        const json = JSON.stringify(responses)
+       return console.log("this is responses", json)
+    }
+
+    const postResponses = () => {
+        const id = 1
+        console.log("this is the response", responses)
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(responses),
+        };
+        fetch(`http://localhost:4000/assesment/checklist/${id}/items`, options)
+            .then((response) => {
+                if(!response.ok) {
+                    throw Error(response.status);
+
+                }
+                return response.json()
+            })
+            .then((postedItems) => {
+                console.log(postedItems)
+            })
+            .catch((error) => {
+                console.log({error: error})
+            })
+    }
+
     return (
         <div className='Sperc-container'>
             <header className="Section-header">
@@ -27,6 +58,8 @@ function Sperc() {
             <SurvivalBehaviours />
             <EmotionalRegulation />
             <SocialParticipation />
+            <button onClick={postResponses}>Submit</button>
+            <button onClick={showMeTheMoney}>Show me the money</button>
         </div>
     )
 }

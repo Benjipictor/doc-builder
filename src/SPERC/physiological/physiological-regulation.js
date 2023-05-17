@@ -11,57 +11,57 @@ function PhysiologicalRegulation(props) {
             { id: 2, description: "strong preference for warmth or cold" }
         ],
         PNS: [
-            { id: 0, description: "Child feels clammy and cool" },
-            { id: 1, description: "Child does not notice if they are hot or cold" },
-            { id: 2, description: "Limp floppy body when held" },
-            { id: 3, description: "Underreacts to pain" },
-            { id: 4, description: "Extremely passive as an infant" }
+            { id: 3, description: "Child feels clammy and cool" },
+            { id: 4, description: "Child does not notice if they are hot or cold" },
+            { id: 5, description: "Limp floppy body when held" },
+            { id: 6, description: "Underreacts to pain" },
+            { id: 7, description: "Extremely passive as an infant" }
         ],
         SNS: [
-            { id: 0, description: "Often too hot" },
-            { id: 1, description: "Sweats a lot" },
-            { id: 2, description: "Heart rate too fast or stays too fast after fear/ exertion" },
-            { id: 3, description: "Overreacts to pain" },
-            { id: 4, description: "Difficult to settle as an infant" },
-            { id: 5, description: "Tense when held" }
+            { id: 8, description: "Often too hot" },
+            { id: 9, description: "Sweats a lot" },
+            { id: 10, description: "Heart rate too fast or stays too fast after fear/ exertion" },
+            { id: 11, description: "Overreacts to pain" },
+            { id: 12, description: "Difficult to settle as an infant" },
+            { id: 13, description: "Tense when held" }
         ]
     }
 
     const foodAndDigestion = {
         title: "Food and Digestion",
         standard: [
-            { id: 0, description: "prone to wetting /accidents/ soiling" },
-            { id: 1, description: "difficulty with potty training; does not seem to know when he/she has to go (i.e., cannot feel the necessary sensation that bowel or bladder are full)" },
-            { id: 2, description: "prone to Food allergies" },
-            { id: 3, description: "prone to eczema" },
-            { id: 4, description: "Shows distinct preference for sweet/ salty/ sour – citrus, spice, bitter/ smoke e.g. BBQ flavour" }
+            { id: 14, description: "prone to wetting /accidents/ soiling" },
+            { id: 15, description: "difficulty with potty training; does not seem to know when he/she has to go (i.e., cannot feel the necessary sensation that bowel or bladder are full)" },
+            { id: 16, description: "prone to Food allergies" },
+            { id: 17, description: "prone to eczema" },
+            { id: 18, description: "Shows distinct preference for sweet/ salty/ sour – citrus, spice, bitter/ smoke e.g. BBQ flavour" }
         ],
         PNS: [
-            { id: 0, description: "Never Thirsty" },
-            { id: 1, description: "Poor appetite" },
-            { id: 2, description: "Prone to loose bowels/ Diarrhoea" },
-            { id: 3, description: "Prone to burping/ flatulence/ vomiting" },
-            { id: 4, description: "Digestive pain or discomfort" },
-            { id: 5, description: "Sleeps all the time" },
-            { id: 6, description: "Needs a lot of sleep to function" }
+            { id: 19, description: "Never Thirsty" },
+            { id: 20, description: "Poor appetite" },
+            { id: 21, description: "Prone to loose bowels/ Diarrhoea" },
+            { id: 22, description: "Prone to burping/ flatulence/ vomiting" },
+            { id: 23, description: "Digestive pain or discomfort" },
+            { id: 24, description: "Sleeps all the time" },
+            { id: 25, description: "Needs a lot of sleep to function" }
         ],
         SNS: [
-            { id: 0, description: "Always Thirsty" },
-            { id: 1, description: "Always hungry, doesn't know when full" },
-            { id: 2, description: "Impulsive with food" },
-            { id: 3, description: "Prone to constipation" },
-            { id: 4, description: "Restless sleep pattern" },
-            { id: 5, description: "Requires excessive help from caregiver to fall asleep; i.e., rubbing back or head, rocking, long walks, or car rides" }
+            { id: 26, description: "Always Thirsty" },
+            { id: 27, description: "Always hungry, doesn't know when full" },
+            { id: 28, description: "Impulsive with food" },
+            { id: 29, description: "Prone to constipation" },
+            { id: 30, description: "Restless sleep pattern" },
+            { id: 31, description: "Requires excessive help from caregiver to fall asleep; i.e., rubbing back or head, rocking, long walks, or car rides" }
         ]
     }
 
     const sleepAndSelfSoothing = {
         title: "Sleep/ self-soothing",
         standard: [
-            { id: 0, description: "Tense when held as a baby" },
-            { id: 1, description: "Fussy baby" },
-            { id: 2, description: "Difficult to settle /very long bedtime routine" },
-            { id: 3, description: "Can they self soothe? (use dummy/ cloth/ teddy/ cuddle)" }
+            { id: 32, description: "Tense when held as a baby" },
+            { id: 33, description: "Fussy baby" },
+            { id: 34, description: "Difficult to settle /very long bedtime routine" },
+            { id: 35, description: "Can they self soothe? (use dummy/ cloth/ teddy/ cuddle)" }
         ]
     };
     const header = { 

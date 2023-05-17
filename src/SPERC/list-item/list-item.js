@@ -27,7 +27,7 @@ const ListItem = (props) => {
     }
 
     const addResponse = (response) => {
-        const foundObject = responses.find(obj => obj.itemNumber === id && obj.title === title && obj.sectionTitle === sectionTitle);
+        const foundObject = responses.find(obj => obj.itemNumber === id);
         const responseObj = {
             itemNumber: id,
             description: description,
@@ -37,7 +37,7 @@ const ListItem = (props) => {
         if (!foundObject) {
             setResponses(responses => [...responses, responseObj]);
         } else {
-            const index = responses.findIndex(obj => obj.id === id && obj.title === title && obj.sectionTitle === sectionTitle);
+            const index = responses.findIndex(obj => obj.itemNumber === id);
             const newFormState = responses.map((obj, i) =>
                 i === index ? { ...obj, response: response } : obj
             );

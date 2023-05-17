@@ -1,4 +1,3 @@
-import { Prisma } from '@prisma/client'
 import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
 import { JWT_SECRET } from '../utils/config.js'
 import jwt from 'jsonwebtoken'
