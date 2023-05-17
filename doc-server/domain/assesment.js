@@ -17,3 +17,16 @@ export const createComments = async (data) => {
     })
     return createdComments
 }
+
+export const getAllChecklist = async (checklistId) => {
+    const checklist = await dbClient.checklist.findUnique({
+        where: {
+            id: checklistId
+        },
+        include: {
+            comments: true,
+            checklistItems: true
+        }
+    })
+    return checklist
+}
