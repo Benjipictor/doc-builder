@@ -1,6 +1,8 @@
 .Sperc-container {
     margin: 20px;
     margin-bottom: 100px;
+    background-color: rgb(236, 236, 236);
+    padding: 15px 
 }
 
 .Blue-text {
@@ -14,3 +16,4 @@
 .Green-text {
     color: green;
 }
+

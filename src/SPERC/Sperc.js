@@ -9,11 +9,7 @@ import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
 function Sperc() {
     const [formState, setFormState] = useState([]);
     const [responses, setResponses] = useState([])
-    const showMeTheMoney = () => {
-        const json = JSON.stringify(responses)
-       return console.log("this is responses", json)
-    }
-    
+        
     const postComments = () => {
         const id = 1
         const options = {
@@ -85,13 +81,12 @@ function Sperc() {
                 </ul>
             </header>
             <PhysiologicalRegulation responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState}  />
-            <SurvivalBehaviours />
-            <EmotionalRegulation />
-            <SocialParticipation />
+            <SurvivalBehaviours responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} />
+            <EmotionalRegulation responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} />
+            <SocialParticipation responses={responses} setResponses={setResponses} formState={formState} setFormState={setFormState} />
             <button onClick={submit}>Submit</button>
-            <button onClick={showMeTheMoney}>Show me the money</button>
         </div>
     )
 }
 
-export default Sperc
+export default Sperc;

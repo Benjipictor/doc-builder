@@ -3,7 +3,7 @@ import './list-item.css'
 import TextInput from '../text-Input/textInput'
 
 const ListItem = (props) => {
-    const {description, id, title, setFormState, formState, sectionTitle, responses, setResponses} = props
+    const {description, id, setFormState, formState, responses, setResponses} = props
     const [textColour, setTextColour] = useState("black")
     const toggleColourBlue = () => {
         setTextColour('blueText')
