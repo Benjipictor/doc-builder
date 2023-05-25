@@ -17,6 +17,7 @@ function RegisterUser () {
         newUserDetails[name] = value
         console.log("this is the user details", newUserDetails)
         setUserDetails(newUserDetails)
+        console.log(newUserDetails)
     }
 
     const submitUserDetails = () => {
@@ -46,12 +47,12 @@ function RegisterUser () {
     return (
         <div>
             <h2>Please register your details</h2>
-            <RegisterInput label={"first name"} name={"firstName"} handleChange={handleChange} />
-            <RegisterInput label={"last name"} name={"lastName"} handleChange={handleChange} />
-            <RegisterInput label={"email"} name={"email"} handleChange={handleChange}/>
-            <RegisterInput label={"password"} name={"password"} handleChange={handleChange} />
-            <label htmlFor="role">Choose Role</label>
-            <select name="role" id="role" handleChange={handleChange}>
+            <RegisterInput label={"first name: "} name={"firstName"} handleChange={handleChange} />
+            <RegisterInput label={"last name: "} name={"lastName"} handleChange={handleChange} />
+            <RegisterInput label={"email: "} name={"email"} handleChange={handleChange}/>
+            <RegisterInput label={"password: "} name={"password"} handleChange={handleChange} />
+            <label htmlFor="role">Choose Role: </label>
+            <select name="role" id="role" onChange={handleChange}>
                 <option value={"Therapist"}>Therapist</option>
                 <option value={"Parent/Carer"}>Parent / Carer</option>
                 <option value={"Teacher"}>Teacher</option>

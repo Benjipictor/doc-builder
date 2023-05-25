@@ -4,6 +4,7 @@ import PhysiologicalRegulation from './physiological/physiological-regulation'
 import SocialParticipation from './social-participation-play/SocialParticipationPlay'
 import './Sperc.css'
 import SurvivalBehaviours from './survival-behaviours/SurvivalBehaviours'
+import Results from '../results/results';
 
 
 function Sperc() {

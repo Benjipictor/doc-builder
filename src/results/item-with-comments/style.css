@@ -1,0 +1,31 @@
+.heading-container {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+}
+
+.main-container {
+    border: 1px black solid ;
+    margin-bottom: 5px;
+}
+
+.comments-container {
+    display: grid;
+    justify-content: center;
+}
+
+.heading {
+    font-size: large;
+}
+
+#Teacher {
+    
+    color: orange;
+}
+
+#Both {
+    color: green;
+}
+
+#Parent {
+    color: blue;
+}

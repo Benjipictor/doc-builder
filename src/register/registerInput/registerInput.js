@@ -1,4 +1,4 @@
-function RegisterInput (label, name, id, handleChange) {
+function RegisterInput ({label, name, id, handleChange}) {
 
     return (
         <div>

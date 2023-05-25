@@ -41,7 +41,7 @@ const ListItem = (props) => {
             const newFormState = responses.map((obj, i) =>
                 i === index ? { ...obj, response: response } : obj
             );
-            setFormState(newFormState);
+            setResponses(newFormState);
         }
         console.log(responses)
     }
